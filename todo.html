@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+        background-color: rgb(14, 82, 59);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      
+    }
+
+    .task-container {
+      margin: 0 20px; 
+      background-color: #d1e2cb;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow:  0 0 50px 15px #53d166;
+      box-sizing: border-box;
+      border: 2px solid transparent; 
+      transition: border-color 0.5s ease;
+    }
+
+    .task-container:hover {
+      border-color: #0c200d; 
+    }
+
+    .task-header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+
+    .task-input {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .add-button {
+      background-color: #040c04;
+      color: #fff;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .dragging {
+        opacity: 0.4;
+    }
+    .hide {
+        display: none;
+    }
+
+    .count {
+        width: 25px;
+        height: 25px;
+        padding: 2px 6px;
+        border-radius: 50%;
+        background-color: black;
+        color: white
+    }
+
+    .todos {
+        min-height: 100px;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <div class="task-container">
+    <div class="task-header">
+        Not started
+        <span id="not_started_count" class="count"></span>
+    </div>
+    <div id="not_started_todos" data-id="0" class="todos">
+
+    </div>
+    <form class="add" id="add">
+        <input type="text" class="task-input" placeholder="Add a task" name="todo">
+        <button class="add-button" data-id="0" name="submit">+</button>
+    </form>
+  </div>
+
+  <div class="task-container">
+    <div class="task-header">
+        In Progress
+        <span id="progress_count" class="count"></span>
+
+    </div>
+    <div id="progress_todos" data-id="1" class="todos">
+
+    </div>
+    <form class="add" id="add">
+        <input type="text" class="task-input" placeholder="Add a task" name="todo">
+        <button class="add-button" data-id="1" name="submit">+</button>
+    </form>
+  </div>
+
+  <div class="task-container">
+    <div class="task-header">
+        Completed
+        <span id="completed_count" class="count"></span>
+    </div>
+    <div id="completed_todos" data-id="2" class="todos">
+
+    </div>
+    <form class="add" id="add">
+        <input type="text" class="task-input" placeholder="Add a task" name="todo">
+        <button class="add-button" data-id="2" name="submit">+</button>
+    </form>
+  </div>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
